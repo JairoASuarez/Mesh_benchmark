@@ -182,7 +182,46 @@ class Boid {
       fill(avatarColor);
     }
 
+    //Create Vertex-Vertex Representation
+    int [] neighbors0 = {1, 5, 4, 3, 9};
+    int [] neighbors1 = {2, 6, 5, 0, 9};
+    int [] neighbors2 = {3, 7, 6, 1, 9};
+    int [] neighbors3 = {2, 6, 7, 4, 9};
+    int [] neighbors4 = {5, 0, 3, 7, 8};
+    int [] neighbors5 = {6, 1, 0, 4, 8};
+    int [] neighbors6 = {7, 2, 1, 5, 8};
+    int [] neighbors7 = {4, 3, 2, 6, 8};
+    int [] neighbors8 = {4, 5, 6, 7};
+    int [] neighbors9 = {0, 1, 2, 3};
+    Vertex v0 = new Vertex("v0", 0, 0, 0, neighbors0);
+    Vertex v1 = new Vertex("v1", 1, 0, 0, neighbors1);
+    Vertex v2 = new Vertex("v2", 1, 1, 0, neighbors2);
+    Vertex v3 = new Vertex("v3", 0, 1, 0, neighbors3);
+    Vertex v4 = new Vertex("v4", 0, 0, 1, neighbors4);
+    Vertex v5 = new Vertex("v5", 1, 0, 1, neighbors5);
+    Vertex v6 = new Vertex("v6", 1, 1, 1, neighbors6);
+    Vertex v7 = new Vertex("v7", 0, 1, 1, neighbors7);
+    Vertex v8 = new Vertex("v8", .5, .5, 1, neighbors8);
+    Vertex v9 = new Vertex("v9", .5, .5, 0, neighbors9);
+    
+    ArrayList<Vertex> vertexList = new ArrayList<Vertex>();
+    vertexList.add(v0);
+    vertexList.add(v1);
+    vertexList.add(v2);
+    vertexList.add(v3);
+    vertexList.add(v4);
+    vertexList.add(v5);
+    vertexList.add(v6);
+    vertexList.add(v7);
+    vertexList.add(v8);
+    vertexList.add(v9);
+    
+    VertexVertex representation = new VertexVertex(vertexList);
+    
+    representation.inmediateMode(kind);
+
     //draw boid
+    /*
     beginShape(kind);
     vertex(3 * sc, 0, 0);
     vertex(-3 * sc, 2 * sc, 0);
@@ -200,6 +239,7 @@ class Boid {
     vertex(-3 * sc, 2 * sc, 0);
     vertex(-3 * sc, -2 * sc, 0);
     endShape();
+    */
 
     popStyle();
   }
