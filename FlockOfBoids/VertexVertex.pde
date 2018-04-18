@@ -20,7 +20,7 @@ class VertexVertex {
     s.beginShape(kind);
     for(int i = 0; i < vertexList.size(); i++){
       Vertex v = vertexList.get(i);
-      s.vertex(v.x, v.y, v.z);
+      //s.vertex(v.x, v.y, v.z);
       for(int j = 0; j < v.neighbors.length; j ++){
         int index = v.neighbors[j];
         Vertex neighbor = vertexList.get(index);
@@ -39,9 +39,10 @@ class VertexVertex {
       for(int j = 0; j < v.neighbors.length; j ++){
         int index = v.neighbors[j];
         Vertex neighbor = vertexList.get(index);
-        vertex(neighbor.x, neighbor.y, neighbor.y);
+        vertex(neighbor.x, neighbor.y, neighbor.z);
       }
     }
     endShape(CLOSE);
   }
+  
 }
