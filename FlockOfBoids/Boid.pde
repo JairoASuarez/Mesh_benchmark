@@ -38,10 +38,17 @@ class Boid {
         }
       }
     };
-    node.setPosition(new Vector(position.x(), position.y(), position.z()));
-    velocity = new Vector(random(-1, 1), random(-1, 1), random(1, -1));
-    acceleration = new Vector(0, 0, 0);
-    neighborhoodRadius = 100;
+    //Reset Position
+    setPos(inPos);
+  }
+  
+  //Reset position Boid
+  public void setPos(Vector inPos){
+   position.set(inPos); 
+   node.setPosition(new Vector(position.x(), position.y(), position.z()));
+   velocity = new Vector(random(-1, 1), random(-1, 1), random(1, -1));
+   acceleration = new Vector(0, 0, 0);
+   neighborhoodRadius = 100;
   }
 
   public void run(ArrayList<Boid> boids) {
@@ -182,12 +189,19 @@ class Boid {
     }
     // Retained or inmediate mode
     if(!retained){
-      VertexVertex representation = new VertexVertex();
-      representation.inmediateMode(kind);        
-      popStyle();
+      if(!rep){
+        VertexVertex representation = new VertexVertex();
+        representation.inmediateMode(kind);        
+        popStyle();
+      } else {
+        FaceVertex representation = new FaceVertex();
+        representation.inmediateMode(kind);
+        popStyle();
+      }
     } else {
-      shape(s);
-      popStyle();
+      //Inmediate mode
+        shape(s);
+        popStyle();
     }
   } 
 }

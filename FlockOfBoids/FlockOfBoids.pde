@@ -44,7 +44,8 @@ Node avatar;
 boolean animate = true;
 //Retained mode
 boolean retained = false;
-
+//Representation mode
+boolean rep = false;
 void setup() {
   size(1000, 800, P3D);
   scene = new Scene(this);
@@ -88,8 +89,32 @@ void draw() {
     popStyle();
     return s;
   }
+  
+//Function for Rained face vertex
+  PShape faceVertexRetained(){
+    pushStyle();
+    // uncomment to draw boid axes
+    //scene.drawAxes(10);
+    int kind = TRIANGLES;
+    strokeWeight(2);
+    stroke(color(0, 255, 0));
+    fill(color(255, 0, 0, 125));
 
+    FaceVertex representation = new FaceVertex();
+    s = representation.retainedMode(kind);
+    popStyle();
+    return s;
+  }
 
+//Change representation mesh
+void changeRepresentation(){
+  if(!retained){
+    if(!rep) s = vertexVertexRetained();
+    else s = faceVertexRetained();
+  }
+  for (int i = 0; i < initBoidNum; i++)
+    flock.get(i).setPos(new Vector(flockWidth / 2, flockHeight / 2, flockDepth / 2));
+}
 void walls() {
   pushStyle();
   noFill();
@@ -143,8 +168,14 @@ void keyPressed() {
       scene.interpolateTo(avatar);
     }
     break;
-      case 'r':
-      retained = !retained;
-      break;
+   // change retained or inmediate mode
+  case 'r':
+    retained = !retained;
+    break;
+  // change vertexvertex o facevertex representation
+  case 'f':
+    rep = !rep;
+    changeRepresentation();
+    break;
   }
 }

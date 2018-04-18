@@ -8,14 +8,6 @@ class VertexVertex {
     this.vertexList = initializeVertex();
   }
   
-  ArrayList<Vertex> getVertexList(){
-    return vertexList;
-  }
-  
-  void setVertexList(ArrayList<Vertex> vertexList){
-    this.vertexList = vertexList;
-  }
-  
   //Initialization vertex
   ArrayList<Vertex> initializeVertex(){
     int [] neighbors0 = {1, 2, 3};
@@ -37,6 +29,7 @@ class VertexVertex {
     return vertexList;
   }
   
+  //Retained Mode
   PShape retainedMode(int kind){
     boid = createShape();
     boid.beginShape(kind);
@@ -53,6 +46,7 @@ class VertexVertex {
     return boid;
   }
   
+  //Inmediate Mode
   void inmediateMode(int kind){
     beginShape(kind);
     for(int i = 0; i < vertexList.size(); i++){
