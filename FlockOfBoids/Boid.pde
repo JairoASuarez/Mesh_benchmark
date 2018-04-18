@@ -180,11 +180,9 @@ class Boid {
       noStroke();
       fill(avatarColor);
     }
-    
+    // Retained or inmediate mode
     if(!retained){
-      ArrayList<Vertex> vertexList = new ArrayList<Vertex>();
-      vertexList = initializeVertex();
-      VertexVertex representation = new VertexVertex(vertexList);
+      VertexVertex representation = new VertexVertex();
       representation.inmediateMode(kind);        
       popStyle();
     } else {
