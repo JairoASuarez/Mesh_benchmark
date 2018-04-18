@@ -24,10 +24,12 @@ import frames.core.*;
 import frames.processing.*;
 
 Scene scene;
+PShape s;
 int flockWidth = 1280;
 int flockHeight = 720;
 int flockDepth = 600;
 boolean avoidWalls = true;
+float sc = 3;
 
 // visual modes
 // 0. Faces and edges
@@ -40,6 +42,8 @@ int initBoidNum = 900; // amount of boids to start the program with
 ArrayList<Boid> flock;
 Node avatar;
 boolean animate = true;
+//Retained mode
+boolean retained = false;
 
 void setup() {
   size(1000, 800, P3D);
@@ -52,6 +56,7 @@ void setup() {
   //interactivity defaults to the eye
   scene.setDefaultGrabber(eye);
   scene.fitBall();
+  s = vertexVertexRetained();
   // create and fill the list of boids
   flock = new ArrayList();
   for (int i = 0; i < initBoidNum; i++)
@@ -66,6 +71,44 @@ void draw() {
   // Calls Node.visit() on all scene nodes.
   scene.traverse();
 }
+
+  ArrayList<Vertex> initializeVertex(){
+    int [] neighbors0 = {1, 2, 3};
+    int [] neighbors1 = {0, 2, 3};
+    int [] neighbors2 = {0, 1, 3};
+    int [] neighbors3 = {0, 1, 2};
+    
+    Vertex v0 = new Vertex("v0", 3 * sc, 0, 0, neighbors0);
+    Vertex v1 = new Vertex("v1",-3 * sc, 2 * sc, 0, neighbors1);
+    Vertex v2 = new Vertex("v2",-3 * sc, -2 * sc, 0, neighbors2);
+    Vertex v3 = new Vertex("v3",-3 * sc, 0, 2 * sc, neighbors3);
+    
+    ArrayList<Vertex> vertexList = new ArrayList<Vertex>();
+    vertexList.add(v0);
+    vertexList.add(v1);
+    vertexList.add(v2);
+    vertexList.add(v3);
+    
+    return vertexList;
+  }
+  
+  PShape vertexVertexRetained(){
+    pushStyle();
+    // uncomment to draw boid axes
+    //scene.drawAxes(10);
+    int kind = TRIANGLES;
+    strokeWeight(2);
+    stroke(color(0, 255, 0));
+    fill(color(255, 0, 0, 125));
+
+    ArrayList<Vertex> vertexList = new ArrayList<Vertex>();
+    vertexList = initializeVertex();
+    VertexVertex representation = new VertexVertex(vertexList);
+    s = representation.retainedMode(kind);
+    popStyle();
+    return s;
+  }
+
 
 void walls() {
   pushStyle();
@@ -120,5 +163,8 @@ void keyPressed() {
       scene.interpolateTo(avatar);
     }
     break;
+      case 'r':
+      retained = !retained;
+      break;
   }
 }

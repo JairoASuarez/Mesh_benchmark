@@ -2,7 +2,7 @@
 
 class VertexVertex {
   ArrayList<Vertex> vertexList = new ArrayList<Vertex>();
-  PShape s = createShape();
+  PShape boid;
   
   VertexVertex(ArrayList<Vertex> vertexList){
     this.vertexList = vertexList;
@@ -17,18 +17,19 @@ class VertexVertex {
   }
   
   PShape retainedMode(int kind){
-    s.beginShape(kind);
+    boid = createShape();
+    boid.beginShape(kind);
     for(int i = 0; i < vertexList.size(); i++){
       Vertex v = vertexList.get(i);
-      //s.vertex(v.x, v.y, v.z);
+      boid.vertex(v.x, v.y, v.z);
       for(int j = 0; j < v.neighbors.length; j ++){
         int index = v.neighbors[j];
         Vertex neighbor = vertexList.get(index);
-        s.vertex(neighbor.x, neighbor.y, neighbor.y);
+        boid.vertex(neighbor.x, neighbor.y, neighbor.y);
       }
     }
-    s.endShape();
-    return s;
+    boid.endShape(CLOSE);
+    return boid;
   }
   
   void inmediateMode(int kind){
