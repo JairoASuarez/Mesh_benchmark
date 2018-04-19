@@ -33,19 +33,22 @@ Hacer un benchmark (midiendo los *fps* promedio) de varias representaciones de m
 
 ## Discusión
 
-1. Las representaciones que utilizamos para las mallas poligonales fueron:
+1. Las representaciones que utilizamos para las mallas poligonales fueron, para cambiar entre representaciones se activa con la tecla 'f':
  * Vertex-Vertex
+ ![VV](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/Results/VV.png)
  * Face-Vertex
+ ![VV](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/Results/FV.jpg)
 
 2. Para las dos representaciones se aplicó el modo retenido e inmediato, el cual se activa con la tecla 'r'.
 
-3. Para el benchmark smostramos los resultados obtenidos para nos basamos en los siguientes 4 casos:
+3. Para el benchmark mostramos los resultados respecto a los siguientes cuatro casos:
+
  * Vertex-Vertex Inmediate
  * Vertex-Vertex Retained
  * Face-Vertex Inmediate
  * Face-Vertex Retained
  
-    Para los resultados obtenidos realizamos el ejercicio con un número de 900 boids y en una máquina con las siguientes caracteristicas:
+Para los resultados obtenidos realizamos el ejercicio con un número de 900 boids y en una máquina con las siguientes caracteristicas:
 * Memoria: 8GB RAM
 * Procesador: Intel® Core™ i7-4510U CPU @ 2.00GHz × 4 
 * Graficos: NVIDIA GeForce 820M/PCIe/SSE2
@@ -58,16 +61,16 @@ Hacer un benchmark (midiendo los *fps* promedio) de varias representaciones de m
  
  ### Graficas
  * Vertex-Vertex Inmediate
- ![VVI](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/results/VertexInmediate.png)
+ ![VVI](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/Results/VertexInmediate.png)
 
  * Vertex-Vertex Retained
- ![VVR](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/results/VertexRetained.png)
+ ![VVR](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/Results/VertexRetained.png)
 
  * Face-Vertex Inmediate
- ![FVI](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/results/FaceInmediate.png)
+ ![FVI](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/Results/FaceInmediate.png)
 
  * Face-Vertex Retained
- ![FVR](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/results/FaceRetained.png)
+ ![FVR](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/Results/FaceRetained.png)
  
 ## Integrantes
 
