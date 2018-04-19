@@ -31,6 +31,44 @@ Hacer un benchmark (midiendo los *fps* promedio) de varias representaciones de m
 2. Check also this [nice presentation](https://pdfs.semanticscholar.org/73b1/5c60672971c44ef6304a39af19dc963cd0af.pdf) about the paper:
 3. There are many online sources, google for more...
 
+## Discusión
+
+1. Las representaciones que utilizamos para las mallas poligonales fueron:
+ * Vertex-Vertex
+ * Face-Vertex
+
+2. Para las dos representaciones se aplicó el modo retenido e inmediato, el cual se activa con la tecla 'r'.
+
+3. Para el benchmark smostramos los resultados obtenidos para nos basamos en los siguientes 4 casos:
+ * Vertex-Vertex Inmediate
+ * Vertex-Vertex Retained
+ * Face-Vertex Inmediate
+ * Face-Vertex Retained
+ 
+    Para los resultados obtenidos realizamos el ejercicio con un número de 900 boids y en una máquina con las siguientes caracteristicas:
+* Memoria: 8GB RAM
+* Procesador: Intel® Core™ i7-4510U CPU @ 2.00GHz × 4 
+* Graficos: NVIDIA GeForce 820M/PCIe/SSE2
+* Sistema operativo: Ubuntu 64 bits
+
+ | Representation/Mode | Inmediate | Retained |
+ | ---------- | ---------- | ---------- |
+ | Vertex-Vertex | 32.52 | 23.11 |
+ | Face-Vertex | 28.95 | 17.90 |
+ 
+ ### Graficas
+ * Vertex-Vertex Inmediate
+ ![VVI](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/results/VertexInmediate.png)
+
+ * Vertex-Vertex Retained
+ ![VVR](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/results/VertexRetained.png)
+
+ * Face-Vertex Inmediate
+ ![FVI](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/results/FaceInmediate.png)
+
+ * Face-Vertex Retained
+ ![FVR](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/results/FaceRetained.png)
+ 
 ## Integrantes
 
 Máximo 3.
@@ -39,7 +77,8 @@ Complete la tabla:
 
 | Integrante | github nick |
 |------------|-------------|
-|            |             |
+| Jairo Suarez | [JairoASuarez](https://github.com/JairoASuarez) |
+| Jonathan Granados | [joagranadosme](https://github.com/joagranadosme) |
 
 ## Entrega
 

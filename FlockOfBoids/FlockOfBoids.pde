@@ -10,7 +10,7 @@
  *
  * Press ' ' to switch between the different eye modes.
  * Press 'a' to toggle (start/stop) animation.
- * Press 'p' to print the current frame rate.
+ * Press 'p' to print the current frame ra    te.
  * Press 'm' to change the mesh visual mode.
  * Press 't' to shift timers: sequential and parallel.
  * Press 'v' to toggle boids' wall skipping.
@@ -70,6 +70,7 @@ void draw() {
   ambientLight(128, 128, 128);
   directionalLight(255, 255, 255, 0, 1, -100);
   walls();
+  info();
   // Calls Node.visit() on all scene nodes.
   scene.traverse();
 }
@@ -108,10 +109,8 @@ void draw() {
 
 //Change representation mesh
 void changeRepresentation(){
-  if(!retained){
     if(!rep) s = vertexVertexRetained();
     else s = faceVertexRetained();
-  }
   for (int i = 0; i < initBoidNum; i++)
     flock.get(i).setPos(new Vector(flockWidth / 2, flockHeight / 2, flockDepth / 2));
 }
@@ -171,6 +170,7 @@ void keyPressed() {
    // change retained or inmediate mode
   case 'r':
     retained = !retained;
+    changeRepresentation();
     break;
   // change vertexvertex o facevertex representation
   case 'f':
@@ -178,4 +178,21 @@ void keyPressed() {
     changeRepresentation();
     break;
   }
+}
+
+void info(){
+  pushStyle();
+  scene.beginScreenCoordinates();
+  textSize(25);
+  fill(255,255,255);
+  text("Representation:", 150, 70);
+  text("Mode:", 450, 70);
+  fill(255,255,0);
+  text(retained?"Retained":"Immediate", 150, 105);
+  text(rep?"Face-Vertex":"Vertex-Vertex", 450, 105);
+  fill(255, 0, 0);
+  text("Boids: "+initBoidNum, 450, 140);
+  text("FPS: "+frameRate, 150, 140);
+  scene.endScreenCoordinates();
+  popStyle();
 }
