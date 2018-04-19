@@ -71,6 +71,11 @@ Para los resultados obtenidos realizamos el ejercicio con un número de 900 boid
 
  * Face-Vertex Retained
  ![FVR](https://github.com/JairoASuarez/Mesh_benchmark/blob/master/Results/FaceRetained.png)
+
+### Conclusiones
+ * La representacion Vertex-Vertex tiene mejores resultados respecto a la representación Face-Vertex en los ambos modos (retenido e inmediato).
+ * El modo inmediato tiene mejores resultados respecto al modo retenido en las dos representaciones.
+ * La mejor manera de representar esta malla poligonal en esta máquina es Vertex-Vertex Inmediate.
  
 ## Integrantes
 
